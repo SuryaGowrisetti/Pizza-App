@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<nav class="navbar navbar-light" style="background-color: bisque;">
+    <a class="navbar-brand">
+        <h2>Welcome</h2>
+    </a>
+    <a class="btn btn-danger" href="/authenticatecustomer/">Log in</a>
+</nav>
+<div class = "container-fluid" style= "background-image: url()"
+
+background-size: cover;
+background-repeat: no-repeat; >
+    
+    <form action="/authenticatecustomer/" method="POST" style= "float: right; padding: 10px 30px; margin: 30px 50px;text-align: center; background-color:silver; border-radius: 20PX; ">
+        {%csrf_token%}
+        <h4 >Sign Up</h4>
+        <input type="text" class="form-control" placeholder = "Username" name="username"><br>
+        <input type="password" class="form-control" placeholder = "Password" name="password"><br>
+        <input type="text" class="form-control" placeholder = "Phone Number" name="phoneno"><br>
+        <p><a class="btn btn-secondary" href="/signup/">Sign Up</a></p>
+    </form>
+    {%for message in messages%}
+    <h5 style="color: maroon;">{{message}}</h5>
+    {%endfor%}
+</div>
+{%endblock%}
